@@ -8,6 +8,29 @@
 */
 package com.vatandas.kutuphane;
 
-public class Telefon {
+import java.util.Random;
 
+public class Telefon {
+    private String telefonNo;
+    private IMEINo imeiNo;
+
+    public Telefon() {
+        this.telefonNo = generateTelefonNo();
+        this.imeiNo = new IMEINo();
+    }
+
+    private String generateTelefonNo() {
+        Random random = new Random();
+        int prefix = 500 + random.nextInt(9);
+        int number = 1000000 + random.nextInt(9000000);
+        return "0" + prefix + number;
+    }
+
+    public String getTelefonNo() {
+        return telefonNo;
+    }
+
+    public IMEINo getImeiNo() {
+        return imeiNo;
+    }
 }
